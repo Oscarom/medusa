@@ -1,36 +1,61 @@
 // screens/HomeScreen.js
-import React from 'react';
-import { View, Image, Text } from 'react-native';
-import { SearchBar } from 'react-native-elements';
-import Carousel from 'react-native-snap-carousel';
+import React from "react";
+import { View, Text, SafeAreaView, StyleSheet } from "react-native";
+import { SearchBar } from "react-native-elements";
+import { Button, Card, Title, Paragraph } from "react-native-paper";
 
 const HomeScreen = () => {
-  const carouselData = [
-    { image: 'https://res.cloudinary.com/admitad-gmbh/image/upload/v1675458545/elz9dwgtehthyzfjloub.png' },
-    { image: 'https://i.blogs.es/2e602b/650_1000_chedraui/450_1000.jpg' },
-    { image: 'https://www.organizacionsoriana.com/images/sori_mercado.png' },
-  ];
-
   return (
-    <View>
-      <SearchBar placeholder="Buscar..."/>
-      <Text></Text>
-      <Carousel
-        data={carouselData}
-        renderItem={({ item }) => (
-          <Image source={{ uri: item.image }} style={{ width: 300, height: 200 }} />
-        )}
-        sliderWidth={350}
-        itemWidth={300}
-      />
+    <SafeAreaView>
+      <View>
+        <SearchBar placeholder="Buscar..." />
+        <Text></Text>
 
-     
-      <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginTop: 20 }}>
-        <Image source={{ uri: 'https://example.com/reference1.jpg' }} style={{ width: 100, height: 100 }} />
-        <Image source={{ uri: 'https://example.com/reference2.jpg' }} style={{ width: 100, height: 100 }} />
-        <Image source={{ uri: 'https://example.com/reference3.jpg' }} style={{ width: 100, height: 100 }} />
+        <Card>
+          <Card.Cover
+            source={{
+              uri: "https://thelogisticsworld.com/wp-content/uploads/2023/04/walmart-mexico-2.jpg",
+            }}
+          />
+          <Card.Content>
+            <Text></Text>
+            <Button mode="outlined" onPress={() => console.log("Pressed")}>
+              Visita las ofertas
+            </Button>
+          </Card.Content>
+        </Card>
+
+        <Card>
+          <Card.Cover
+            source={{
+              uri: "https://tb-static.uber.com/prod/image-proc/processed_images/43d534a7507b688c7f39e9700eb55d48/3ac2b39ad528f8c8c5dc77c59abb683d.jpeg",
+            }}
+          />
+          <Card.Content>
+            <Text></Text>
+            <Button mode="outlined" onPress={() => console.log("Pressed")}>
+              Visita las ofertas
+            </Button>
+          </Card.Content>
+        </Card>
+
+        <Card>
+          <Card.Cover
+            source={{
+              uri: "https://thelogisticsworld.com/wp-content/uploads/2023/04/walmart-mexico-2.jpg",
+            }}
+          />
+          <Card.Content>
+            <Text></Text>
+            <Button mode="outlined" onPress={() => console.log("Pressed")}>
+              Visita las ofertas
+            </Button>
+          </Card.Content>
+        </Card>
+
+        <Text></Text>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
