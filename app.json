@@ -4,12 +4,12 @@
     "slug": "medusap",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/auto.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "image": "./assets/auto.png",
+      "resizeMode": "auto",
+      "backgroundColor": "red"
     },
     "assetBundlePatterns": [
       "**/*"
