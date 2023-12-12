@@ -1,12 +1,12 @@
 // App.js
-import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import HomeScreen from './views/HomeScreen';
-import ProductListScreen from './views/ProductListScreen';
-import RecentSearchesScreen from './views/RecentSearchesScreen';
-import BottomTabBar from './components/BottomTabBar';
-import UserProfileScreen from './views/UserProfileScreen';
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import HomeScreen from "./views/HomeScreen";
+import ProductListScreen from "./views/ProductListScreen";
+import RecentSearchesScreen from "./views/RecentSearchesScreen";
+import BottomTabBar from "./components/BottomTabBar";
+import UserProfileScreen from "./views/UserProfileScreen";
 
 const Stack = createStackNavigator();
 
@@ -25,5 +25,3 @@ const App = () => {
 };
 
 export default App;
-
-
