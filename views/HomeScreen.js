@@ -14,11 +14,25 @@ import { Text, Card, Button, Icon } from "@rneui/themed";
 import axios from "axios";
 
 const HomeScreen = () => {
+
+  const [searchText, setSearchText] = useState('');
   const [users, setUsers] = useState([]);
+
+  const filteredUsers = users.filter(user =>
+    user.nombre.toLowerCase().includes(searchText.toLowerCase())
+    || user.nombre_superm.toLowerCase().includes(searchText.toLowerCase())
+    || user.categoria.toLowerCase().includes(searchText.toLowerCase())
+  );
+
+  const handleAddToCart = (productId) => {
+    // Implementar la lógica para agregar el producto al carrito o a la lista
+    console.log('Agregar producto con ID:', productId);
+    alert("Producto agregado con exito")
+  };
 
   useEffect(() => {
     // Cambia la URL según la dirección de tu servidor Express
-    const apiUrl = "http://192.168.1.68:3000/api/productos";
+    const apiUrl = "http://192.168.1.69:3000/api/productos";
 
     axios
       .get(apiUrl)
@@ -34,9 +48,13 @@ const HomeScreen = () => {
     <ScrollView>
       <SafeAreaView>
         <View>
-          <SearchBar placeholder="Buscar..." />
+          <SearchBar placeholder="Buscar..." 
+           onChangeText={(text) => setSearchText(text)}
+           value={searchText}
+           />
+
           <Text></Text>
-          {users.map((user) => (
+          {filteredUsers.map((user) => (
             <Card key={user.id}>
               <Card.Title>{user.nombre}</Card.Title>
               <Card.Divider />
@@ -44,7 +62,7 @@ const HomeScreen = () => {
   
                 style={{ padding: 170, width:150, alignContent:"center"}}
                 source={{
-                  uri:"https://ibarramayoreo.com/images/IMAGENES/5895/01.jpg",
+                  uri: user.image
                 }}
               />
               <Text style={{ marginBottom: 10, marginTop:10, textAlign:"center" }}>
@@ -63,7 +81,8 @@ const HomeScreen = () => {
                   marginRight: 0,
                   marginBottom: 0,
                 }}
-                title="Ver detalle"
+                title="Agregar a la lista"
+                onPress={() => handleAddToCart(user.id)}
               />
             </Card>
           ))}
@@ -71,7 +90,7 @@ const HomeScreen = () => {
         <Card>
           <Card.Cover
             source={{
-              uri: "https://thelogisticsworld.com/wp-content/uploads/2023/04/walmart-mexico-2.jpg",
+              uri: "https://thumbs.dreamstime.com/b/apple-rojo-aislado-con-el-camino-de-recortes-19130134.jpg",
             }}
           />
           <Card.Content>
@@ -80,6 +99,10 @@ const HomeScreen = () => {
               Visita las ofertas
             </Button>
           </Card.Content>
+
+           source={{
+                  uri: "https://thumbs.dreamstime.com/b/apple-rojo-aislado-con-el-camino-de-recortes-19130134.jpg",
+                }}
         </Card> */}
 
           <Text></Text>
