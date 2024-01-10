@@ -40,7 +40,7 @@ const HomeScreen = () => {
         setUsers(response.data);
       })
       .catch((error) => {
-        console.error("Error al obtener datos del server: ", error);
+        console.error("Error al obtener datos del servidor: ", error);
       });
   }, []);
 
